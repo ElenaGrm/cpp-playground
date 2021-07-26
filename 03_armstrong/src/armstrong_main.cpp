@@ -3,8 +3,21 @@
 bool isArmstrongNumber(int number)
 {
 	// TODO: implement some functionality to see if this number is an armstrong number
-
-	return false;
+	int num, sum=0, digit;
+	bool isArm;
+	
+	num=number;
+	while(num !=0){
+		digit=num % 10;
+		sum= sum + (digit*digit*digit);
+		num=num/10;
+	}
+	if (sum==number)
+		isArm = true;
+	else
+		isArm = false;
+	
+	return isArm;
 }
 
 void printIsArmstrong(int number)
@@ -21,6 +34,13 @@ void printIsArmstrong(int number)
 
 int main(int argc, char *argv[])
 {
+	int num;
+	bool isArm;
+	std::cout << "Enter a positive integer: "<< std::endl;
+	std::cin >> argc;
+	
+	
+		
 	// What is this program expected to do?
 	// - Shows whether an argument is an armstrong number.
 	// (what?)
@@ -41,11 +61,20 @@ int main(int argc, char *argv[])
 	//
 
 	// Make sure there are some program arguments available.
-	if (argc <= 1)
+	if (std::cin.fail())
+	{std::cout<<"Undefined output";
+	return 1;
+	}
+	
+	if (argc <= 0)
 	{
 		std::cout << "No program arguments found." << std::endl;
 		return 1;
 	}
+	
+	else 
+		printIsArmstrong(argc);
+		
 
 	int readNumber = 0;
 	// Get the first argument
